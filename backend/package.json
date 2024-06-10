@@ -1,22 +1,33 @@
 {
-  "name": "backend",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "aws-sdk": "^2.1637.0",
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.20.2",
-    "cors": "^2.8.5",
-    "express": "^4.19.2",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.4.1",
-    "mqtt": "^5.7.0"
-  }
+    "name": "backend",
+    "version": "1.0.0",
+    "description": "Backend for IoT Cloud Monitoring System",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "test": "mocha tests/*.test.js"
+    },
+    "keywords": [
+        "IoT",
+        "Cloud",
+        "Monitoring"
+    ],
+    "author": "oaslananka",
+    "license": "ISC",
+    "dependencies": {
+        "aws-sdk": "^2.1637.0",
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.20.2",
+        "cors": "^2.8.5",
+        "express": "^4.19.2",
+        "jsonwebtoken": "^9.0.2",
+        "mongoose": "^6.8.4",
+        "mqtt": "^5.0.0"
+    },
+    "devDependencies": {
+        "chai": "^4.3.6",
+        "chai-http": "^4.3.0",
+        "mocha": "^10.0.0",
+        "supertest": "^6.1.6"
+    }
 }
