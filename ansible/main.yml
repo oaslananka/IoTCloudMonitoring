@@ -1,0 +1,45 @@
+---
+- name: Setup IoT Cloud Monitoring System
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install Node.js
+      apt:
+        name: nodejs
+        state: present
+
+    - name: Install npm
+      apt:
+        name: npm
+        state: present
+
+    - name: Install MongoDB
+      apt:
+        name: mongodb
+        state: present
+
+    - name: Start MongoDB service
+      service:
+        name: mongodb
+        state: started
+        enabled: yes
+
+    - name: Clone IoT Cloud Monitoring repository
+      git:
+        repo: "https://github.com/oaslananka/IoTCloudMonitoring.git"
+        dest: /home/{{ ansible_user }}/IoTCloudMonitoring
+
+    - name: Install npm dependencies
+      command: npm install
+      args:
+        chdir: /home/{{ ansible_user }}/IoTCloudMonitoring/backend
+
+    - name: Start IoT Cloud Monitoring server
+      command: npm start
+      args:
+        chdir: /home/{{ ansible_user }}/IoTCloudMonitoring/backend
